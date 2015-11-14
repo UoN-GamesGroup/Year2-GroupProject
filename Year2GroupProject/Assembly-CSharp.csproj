@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Common\Scripts\Wave System.cs" />
+     <Compile Include="Assets\Exterior\Scripts\ExteriorBullet.cs" />
      <Compile Include="Assets\Exterior\Scripts\ExteriorPlayerController.cs" />
-     <Compile Include="Assets\Exterior\Scripts\Wave System\ExteriorWaveSystem.cs" />
      <Compile Include="Assets\Interior\Scripts\InteriorPlayerController.cs" />
-     <Compile Include="Assets\Interior\Scripts\Wave System\InteriorWaveSystem.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
