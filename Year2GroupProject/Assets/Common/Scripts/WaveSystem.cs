@@ -9,10 +9,15 @@ public class WaveSystem : MonoBehaviour {
 		//Send info to spawn manager
 
 	int Wave = 1;
-	int MainEnemies, SubEnemies, Bosses, VIPEnemies;
-	int NextBossWave, NextObjectiveWave;
+	int MainEnemies = 0, SubEnemies = 0, Bosses = 0, VIPEnemies = 0;
+	int NextBossWave = 0, NextObjectiveWave = 0;
+
+	SpawnManager spawnManager;
 
 	void Start(){
+
+		spawnManager = this.gameObject.GetComponent<SpawnManager>();
+
 		setNextBossWave();
 		setNextObjectiveWave();
 		generateWave ();
@@ -23,7 +28,7 @@ public class WaveSystem : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Increments wave and calls to generate the next
+	/// Increments wave and calls to generate the next.
 	/// </summary>
 	public void waveCompleted(){
 		Wave++;
@@ -43,11 +48,13 @@ public class WaveSystem : MonoBehaviour {
 			setNextObjectiveWave();
 		}
 
-		//spawnManager.setWaveInfo(MainEnemies, SubEnemies, Bosses - Sends Wave to Spawn Manager
+		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, VIPEnemies); // Send wave info to spawn manager
 
 		Debug.LogFormat ("Boss Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
 	}
 
+
+	//BELOW CONSIDER MULTIPLAYER
 	void createWave(){
 		//Temp wave algorithm
 		MainEnemies = 0 + 10;

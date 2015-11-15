@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Common\Scripts\Wave System.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Exterior\Scripts\tempenemy.cs">
     <Files>
-      <File FileName="Assets\Common\Scripts\Wave System.cs" Line="48" Column="18" />
-      <File FileName="..\..\Main Prototype\Assets\Scripts\SpawnManager.cs" Line="1" Column="1" />
-      <File FileName="..\..\Main Prototype\Assets\Scripts\WaveSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\tempenemy.cs" Line="9" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
