@@ -4,9 +4,7 @@ using System.Collections;
 public class WaveSystem : MonoBehaviour {
 
 	//TODO
-		//Set and find spawn manager
 		//Enemy algorithms
-		//Send info to spawn manager
 
 	int Wave = 1;
 	int MainEnemies = 0, SubEnemies = 0, Bosses = 0, VIPEnemies = 0;
@@ -56,15 +54,14 @@ public class WaveSystem : MonoBehaviour {
 
 	//BELOW CONSIDER MULTIPLAYER
 	void createWave(){
-		//Temp wave algorithm
-		MainEnemies = 0 + 10;
-		SubEnemies = 0 + 10;
+		MainEnemies = (Wave * 5)+ 15;
+		SubEnemies = (Wave * 4)+ 10;
 	}
 
 	void createBossWave(){
 		//Temp wave algorithm
-		MainEnemies = 0 + 10;
-		SubEnemies = 0 + 10;
+		MainEnemies = (Wave * 5)+ 15;
+		SubEnemies = (Wave * 4)+ 10;
 	}
 
 	void createObjectives(){
