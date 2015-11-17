@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BulletMovement : MonoBehaviour {
 
-	public float BulletSpeed = 0.01f;
+	float BulletSpeed = 1f;
 	
 	void Start ()	
 	{
