@@ -5,7 +5,7 @@ using System.Collections;
 *	Spawn Manager for Exterior Level
 */
 
-public class SpawnManager : MonoBehaviour 
+public class ExteriorSpawnManager : MonoBehaviour 
 {
 	public GameObject MainEnemy, SubEnemy, BossEnemy, VIPEnemy;
 
@@ -13,10 +13,10 @@ public class SpawnManager : MonoBehaviour
 	int MainEnemies, SubEnemies, Bosses, VIPEnemies;
 	int SpawnDelay;
 
-	WaveSystem waveSystem;
+	ExteriorWaveSystem waveSystem;
 
 	void Start(){
-		waveSystem = this.gameObject.GetComponent<WaveSystem>();
+		waveSystem = this.gameObject.GetComponent<ExteriorWaveSystem>();
 	}
 
 	/// <summary>
