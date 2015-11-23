@@ -8,62 +8,68 @@ public class ExteriorPlayerController : MonoBehaviour {
 	public GameObject Bullet;
 	public GameObject BulletEmitter;
 
-	double dY = 0;
-	float fY = 0;
-	float fX = 0;
-	int FireLine = 0;
+	public float LookSmoothDamp = 0.1f;
+	public float LookSensitivity = 2;
+	public float MovementSpeed = 5f;
 
+	public int MagSize = 12;
+	int CurrentMag;
+	float FireRate = 0.5f;
+	float NextShot = 0.0f;
+	int ReloadSpeed = 5;
+	int ReloadCountdown;
+	bool Reloading = false;
 
+	float XRotation, YRotation;
+	float CurrentXRotation, CurrentYRotation; 
+	float XRotationV = 0.0f, YRotationV = 0.0f;
 
+	void Start(){
+		CurrentMag = MagSize;
+		InvokeRepeating("reload", 0.0f, 1.0f);
+	}
+	
 	void Update () {
 
-		if (Input.GetKeyUp (KeyCode.W)) {
-			FireLine++;
-		}
-		if (Input.GetKeyUp (KeyCode.S)) {
-			FireLine--;		
-		}
+		checkCamera ();
 
-		if (FireLine > 3) {
-			FireLine = 0;
+		//Reload
+		if (Input.GetKey(KeyCode.R) && CurrentMag < MagSize){
+			ReloadCountdown = ReloadSpeed;
+			Reloading = true;
 		}
-		if (FireLine < 0) {
-			FireLine = 3;
+		//Fire
+		if (Input.GetKey(KeyCode.Mouse0) && Time.time > NextShot && CurrentMag > 0) {
+			NextShot = Time.time + FireRate;
+			CurrentMag--;
+			Debug.Log(CurrentMag);
+			fire ();
 		}
+	}
+	
+	void fire(){
+		Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
+	}
+	
+	void reload(){
+		ReloadCountdown--;
+		if (Reloading == true && ReloadCountdown <= 0){
+			CurrentMag = MagSize;
+			Reloading = false;
+			Debug.Log ("Weapon Reload. Current Ammo: " + CurrentMag);
+		}
+	}
+
+	void checkCamera(){
+		YRotation += Input.GetAxis("Mouse X") * LookSensitivity; 
+		XRotation -= Input.GetAxis("Mouse Y") * LookSensitivity; 
 		
-		switch (FireLine) {
-		case 0:
-			fX = -20;
-			break;
-		case 1:
-			fX = -30;
-			break;
-		case 2:
-			fX = -42;
-			break;
-		}
-
-		if (Input.GetKey (KeyCode.A)) {
-			dY -= 1;
-			fY = (float)dY;
-		}
-		if (Input.GetKey (KeyCode.D)) {
-			dY += 1;
-			fY = (float)dY;			
-		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			GameObject BulletHandler;
-			BulletHandler = Instantiate(Bullet, BulletEmitter.transform.position, Quaternion.Euler (0f, fY, 0f)) as GameObject;
-			
-			Rigidbody rigidbody;
-			rigidbody = BulletHandler.GetComponent<Rigidbody>();
-			
-			rigidbody.AddForce(transform.forward * 1000f);
-			
-			Destroy(BulletHandler, 10.0f);
-		}
-
-		transform.rotation = Quaternion.Euler (fX, fY, 0f);
-		Frame.transform.rotation = Quaternion.Euler (0f, fY, 0f);
+		XRotation = Mathf.Clamp(XRotation, -90, 20); 
+		
+		CurrentXRotation = Mathf.SmoothDamp(CurrentXRotation, XRotation, ref XRotationV, LookSmoothDamp); 
+		CurrentYRotation = Mathf.SmoothDamp(CurrentYRotation, YRotation, ref YRotationV, LookSmoothDamp); 
+		
+		Frame.transform.rotation = Quaternion.Euler(0, CurrentYRotation, 0); 
+		transform.rotation = Quaternion.Euler(CurrentXRotation, CurrentYRotation, 0);
 	}
 }

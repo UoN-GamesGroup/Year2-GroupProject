@@ -46,15 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Common\Scripts\SpawnManager.cs" />
+     <Compile Include="Assets\Common\Scripts\WaveSystem.cs" />
+     <Compile Include="Assets\Exterior\Scripts\ExteriorBulletMovement.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />
-     <Compile Include="Assets\Exterior\Scripts\Player\ExteriorBullet.cs" />
      <Compile Include="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" />
      <Compile Include="Assets\Exterior\Scripts\tempenemy.cs" />
      <Compile Include="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" />
      <Compile Include="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" />
-     <Compile Include="Assets\Interior\Scripts\Player\BulletMovement.cs" />
-     <Compile Include="Assets\Interior\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletMovement.cs" />
+     <Compile Include="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDExteriorAmmo.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDInteriorAmmo.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDScore.cs" />

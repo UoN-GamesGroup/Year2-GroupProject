@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs">
     <Files>
-      <File FileName="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" Line="45" Column="2" />
+      <File FileName="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" Line="67" Column="44" />
+      <File FileName="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" Line="58" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
