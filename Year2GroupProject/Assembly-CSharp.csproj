@@ -48,6 +48,11 @@
   <ItemGroup>
      <Compile Include="Assets\Common\Scripts\SpawnManager.cs" />
      <Compile Include="Assets\Common\Scripts\WaveSystem.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossFiring.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossMovement.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\ExteriorMainEnemyController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\ExteriorBossMissile.cs" />
      <Compile Include="Assets\Exterior\Scripts\ExteriorBulletMovement.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />

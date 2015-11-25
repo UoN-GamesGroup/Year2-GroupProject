@@ -1,0 +1,118 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ExteriorBossFiring : MonoBehaviour {
+	
+	enum state{
+		approach,
+		orbit
+	}
+
+	public void setState(int value){
+		currentState = (state)value;
+		updateFiringState ();
+	}
+
+	state currentState;
+	Vector3 targetPosition = new Vector3 (0, 0, 0);
+	float movementSpeed = 0.2f;
+	float OrbitRange;
+	bool fireSide = true;
+	int counter = 0;
+	int laserCountdown;
+	bool laserActive = false;
+	bool laserFiring = false;
+
+
+	public GameObject laser;
+	public Transform startPoint;
+	LineRenderer laserLine;
+
+	public GameObject missileEmitterLeft;
+	public GameObject missileEmitterRight;
+	public GameObject missile;
+	
+	void Start(){
+		laserLine = laser.GetComponent<LineRenderer> ();
+		laserLine.SetWidth (0.1f, 0.1f);
+		//Generate MovementSpeed
+		//Get TargetPosition
+	}
+
+	void Update(){
+		laserLine.SetPosition (0, startPoint.position);
+		laserLine.SetPosition (1, targetPosition);
+
+
+		//Turn On/Off LaserLine
+		if (laserActive == true) {
+			laserLine.enabled = true;
+		} else {
+			laserLine.enabled = false;
+		}
+	}
+
+	void updateFiringState(){
+		if (currentState == state.approach) {
+			InvokeRepeating ("fireMissiles", 1.0f, 1.0f);
+			Debug.Log("Missile Method Invoked");
+			try{
+				CancelInvoke ("fireLaser");
+			} 
+			catch{
+
+			}
+		} else if (currentState == state.orbit) {
+			InvokeRepeating ("fireLaser", 2.0f, 0.5f);
+			try{
+				CancelInvoke ("fireMissiles");
+			}
+			catch{
+
+			}
+		}
+	}
+
+	void fireMissiles(){
+
+		if (counter == 1) {
+			Instantiate(missile, missileEmitterLeft.transform.position, missileEmitterLeft.transform.rotation);
+		} else if (counter == 2){
+			Instantiate(missile, missileEmitterRight.transform.position, missileEmitterRight.transform.rotation);
+		} else if (counter == 3){
+			counter = 0;
+		}
+
+		counter++;
+	}
+
+	void fireLaser(){
+
+		switch (laserCountdown) {
+		case 1:
+			laserActive = true;
+			break;
+		case 5:
+			laserFiring = true;
+			break;
+		case 6:
+			laserFiring = false;
+			break;
+		case 7:
+			laserActive = false;
+			break;
+		case 10:
+			laserCountdown = 0;
+			break;		
+		default: 
+			break;
+		}
+
+		if (laserActive) {
+			laser.transform.LookAt (targetPosition);
+		}
+
+		laserCountdown++;
+	}
+
+}
