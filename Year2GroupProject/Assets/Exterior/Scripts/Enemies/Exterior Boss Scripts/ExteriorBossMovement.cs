@@ -5,7 +5,6 @@ public class ExteriorBossMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
-		Debug.Log ("Firing State Set " + currentState);
 	}
 
 	enum state{

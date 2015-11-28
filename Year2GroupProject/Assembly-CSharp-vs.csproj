@@ -46,20 +46,22 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Common\Scripts\SpawnManager.cs" />
-     <Compile Include="Assets\Common\Scripts\WaveSystem.cs" />
      <Compile Include="Assets\Dev Area\Scripts\DevMovement.cs" />
      <Compile Include="Assets\Dev Area\Scripts\DevStressSpawning.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossController.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossFiring.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossMovement.cs" />
-     <Compile Include="Assets\Exterior\Scripts\Enemies\ExteriorMainEnemyController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainFiring.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainMovement.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubFiring.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubMovement.cs" />
      <Compile Include="Assets\Exterior\Scripts\ExteriorBossMissile.cs" />
      <Compile Include="Assets\Exterior\Scripts\ExteriorBulletMovement.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />
      <Compile Include="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" />
-     <Compile Include="Assets\Exterior\Scripts\tempenemy.cs" />
      <Compile Include="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" />
      <Compile Include="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" />
      <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletMovement.cs" />

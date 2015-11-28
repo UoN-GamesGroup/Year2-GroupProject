@@ -15,10 +15,8 @@ public class ExteriorBossFiring : MonoBehaviour {
 
 	state currentState;
 	Vector3 targetPosition = new Vector3 (0, 0, 0);
-	float movementSpeed = 0.2f;
-	float OrbitRange;
 	bool fireSide = true;
-	int counter = 0;
+	int missileCounter = 0;
 	int laserCountdown;
 	bool laserActive = false;
 	bool laserFiring = false;
@@ -55,7 +53,6 @@ public class ExteriorBossFiring : MonoBehaviour {
 	void updateFiringState(){
 		if (currentState == state.approach) {
 			InvokeRepeating ("fireMissiles", 1.0f, 1.0f);
-			Debug.Log("Missile Method Invoked");
 			try{
 				CancelInvoke ("fireLaser");
 			} 
@@ -75,15 +72,15 @@ public class ExteriorBossFiring : MonoBehaviour {
 
 	void fireMissiles(){
 
-		if (counter == 1) {
+		if (missileCounter == 1) {
 			Instantiate(missile, missileEmitterLeft.transform.position, missileEmitterLeft.transform.rotation);
-		} else if (counter == 2){
+		} else if (missileCounter == 2){
 			Instantiate(missile, missileEmitterRight.transform.position, missileEmitterRight.transform.rotation);
-		} else if (counter == 3){
-			counter = 0;
+		} else if (missileCounter == 3){
+			missileCounter = 0;
 		}
 
-		counter++;
+		missileCounter++;
 	}
 
 	void fireLaser(){
