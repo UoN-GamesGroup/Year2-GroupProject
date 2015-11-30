@@ -1,10 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs">
     <Files>
-      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainMovement.cs" Line="44" Column="28" />
-      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainFiring.cs" Line="29" Column="3" />
-      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" Line="92" Column="17" />
+      <File FileName="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\ExteriorBulletController.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\HUD\HUDExteriorAmmo.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\HUD\HUDInteriorAmmo.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\HUD\HUDScore.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\HUD\HUDWave.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

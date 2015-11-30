@@ -46,11 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Dev Area\Scripts\DevMovement.cs" />
-     <Compile Include="Assets\Dev Area\Scripts\DevStressSpawning.cs" />
-     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossController.cs" />
-     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossFiring.cs" />
-     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss Scripts\ExteriorBossMovement.cs" />
+     <Compile Include="Assets\Common\Dev Area\Scripts\DevMovement.cs" />
+     <Compile Include="Assets\Common\Dev Area\Scripts\DevStressSpawning.cs" />
+     <Compile Include="Assets\Common\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Common\Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss\ExteriorBossController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss\ExteriorBossFiring.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Boss\ExteriorBossMovement.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainController.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainFiring.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainMovement.cs" />
@@ -58,7 +60,7 @@
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubFiring.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubMovement.cs" />
      <Compile Include="Assets\Exterior\Scripts\ExteriorBossMissile.cs" />
-     <Compile Include="Assets\Exterior\Scripts\ExteriorBulletMovement.cs" />
+     <Compile Include="Assets\Exterior\Scripts\ExteriorBulletController.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />
      <Compile Include="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" />
@@ -67,6 +69,7 @@
      <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletMovement.cs" />
      <Compile Include="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDExteriorAmmo.cs" />
+     <Compile Include="Assets\User Interface\Scripts\HUD\HUDHealth.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDInteriorAmmo.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDScore.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDWave.cs" />

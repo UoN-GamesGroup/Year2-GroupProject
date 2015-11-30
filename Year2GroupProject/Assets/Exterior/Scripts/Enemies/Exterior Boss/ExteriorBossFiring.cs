@@ -20,7 +20,9 @@ public class ExteriorBossFiring : MonoBehaviour {
 	int laserCountdown;
 	bool laserActive = false;
 	bool laserFiring = false;
+	int laserDamage = 20;
 
+	GameObject target;
 
 	public GameObject laser;
 	public Transform startPoint;
@@ -31,6 +33,9 @@ public class ExteriorBossFiring : MonoBehaviour {
 	public GameObject missile;
 	
 	void Start(){
+		//TEMP
+		target = GameObject.FindGameObjectWithTag("Player");
+
 		laserLine = laser.GetComponent<LineRenderer> ();
 		laserLine.SetWidth (0.1f, 0.1f);
 		//Generate MovementSpeed
@@ -40,7 +45,6 @@ public class ExteriorBossFiring : MonoBehaviour {
 	void Update(){
 		laserLine.SetPosition (0, startPoint.position);
 		laserLine.SetPosition (1, targetPosition);
-
 
 		//Turn On/Off LaserLine
 		if (laserActive == true) {
@@ -91,6 +95,7 @@ public class ExteriorBossFiring : MonoBehaviour {
 			break;
 		case 5:
 			laserFiring = true;
+			damagePlayer(laserDamage);
 			break;
 		case 6:
 			laserFiring = false;
@@ -108,8 +113,10 @@ public class ExteriorBossFiring : MonoBehaviour {
 		if (laserActive) {
 			laser.transform.LookAt (targetPosition);
 		}
-
 		laserCountdown++;
 	}
 
+	void damagePlayer(int damage){
+		target.gameObject.GetComponent<PlayerHealth> ().dealDamage (damage);
+	}
 }

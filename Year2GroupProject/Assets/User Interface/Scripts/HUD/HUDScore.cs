@@ -9,7 +9,7 @@ public class HUDScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-	
+		//Will give you score ScoreManager.Score
 	}
 	
 	// Update is called once per frame

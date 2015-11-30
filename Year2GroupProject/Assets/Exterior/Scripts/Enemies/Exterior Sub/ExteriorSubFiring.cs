@@ -16,6 +16,13 @@ public class ExteriorSubFiring : MonoBehaviour {
 	state currentState;
 	Vector3 targetPosition = new Vector3 (0, 0, 0);
 	int biteCounter;
+	int biteDamage = 10;
+	GameObject target;
+
+	void Start(){
+		//TEMP
+		target = GameObject.FindGameObjectWithTag("Player");
+	}
 
 	void updateFiringState(){
 		if (currentState == state.approach) {
@@ -38,9 +45,13 @@ public class ExteriorSubFiring : MonoBehaviour {
 
 	void biteAttack(){
 		if (biteCounter == 3) {
-			//Attack
+			damagePlayer(biteDamage);
 			biteCounter = 0;
 		}
 		biteCounter++;
+	}
+
+	void damagePlayer(int damage){
+		target.gameObject.GetComponent<PlayerHealth> ().dealDamage (damage);
 	}
 }

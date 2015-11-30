@@ -79,7 +79,6 @@ public class ExteriorSpawnManager : MonoBehaviour
 				xPosition = xPosition - (xPosition * 2);
 				break;
 		}
-		Debug.Log ("Position (XYZ): " + xPosition + " " + zPosition + " " + yPosition);
 		return new Vector3(xPosition, yPosition, zPosition);
 	}
 
@@ -90,7 +89,7 @@ public class ExteriorSpawnManager : MonoBehaviour
 		if (n <= 4 && MainEnemies != 0) {
 			MainEnemies--;
 			return MainEnemy;
-		} else if (n >= 4 && n >= 8 && SubEnemies != 0) {
+		} else if (n > 4 && n <= 8 && SubEnemies != 0) {
 			MainEnemies--;
 			return SubEnemy;
 		} else if (n >= 9 && Bosses != 0) {

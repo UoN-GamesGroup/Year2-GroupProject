@@ -7,7 +7,10 @@ public class ExteriorSubController : MonoBehaviour {
 		approach,
 		attack
 	}
-	
+
+	int Score = 10;
+	int Health = 10;
+
 	ExteriorSubMovement movementController;
 	ExteriorSubFiring firingController;
 	Vector3 targetPosition = new Vector3 (0, 0, 0);
@@ -22,6 +25,10 @@ public class ExteriorSubController : MonoBehaviour {
 	}
 	
 	void Update(){
+		if (Health < 0) {
+			ScoreManager.Score += Score;
+			Destroy(this.gameObject);
+		}
 		targetRange = Vector3.Distance (transform.position, targetPosition);
 		if (targetRange >= orbitRange) {
 			if (currentState != state.approach){
@@ -38,5 +45,9 @@ public class ExteriorSubController : MonoBehaviour {
 		currentState = value;
 		movementController.setState ((int)currentState);
 		firingController.setState ((int)currentState);
+	}
+
+	public void dealDamage(int value){
+		Health -= value;
 	}
 }
