@@ -12,8 +12,11 @@ public class ExteriorPlayerController : MonoBehaviour {
 	public float LookSensitivity = 2;
 	public float MovementSpeed = 5f;
 
-	public int MagSize = 12;
-	int CurrentMag;
+	public GameObject HUDAmmo;
+	HUDExteriorAmmo HUDAmmoScript;
+
+	public static int MagSize = 11;
+	public static int CurrentMag;
 	float FireRate = 0.5f;
 	float NextShot = 0.0f;
 	int ReloadSpeed = 5;
@@ -25,6 +28,7 @@ public class ExteriorPlayerController : MonoBehaviour {
 	float XRotationV = 0.0f, YRotationV = 0.0f;
 
 	void Start(){
+		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDExteriorAmmo> ();
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
 	}
@@ -49,6 +53,7 @@ public class ExteriorPlayerController : MonoBehaviour {
 	
 	void fire(){
 		Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
+		HUDAmmoScript.bulletFired ();
 	}
 	
 	void reload(){

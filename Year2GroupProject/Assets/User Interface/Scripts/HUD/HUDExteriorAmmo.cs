@@ -3,15 +3,26 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class HUDExteriorAmmo : MonoBehaviour {
-	
+
+	Color colour_original = new Color(1f, 1f, 1f, 1f);
+	Color colour_change = new Color(1f, 0f, 0f, 1f);
+	public RawImage[] ammosymbols = new RawImage[11];
 	//Will Link these variables later
-	int MagSize = 8;
-	int CurrentMag = 5;
 	bool Reloading = false;
 
-	//Same as Interior, but ammo is shown with bullet icons. Show the number of bullets in current mag in icons
-	
-	
+	public void bulletFired(){
+		foreach (RawImage ammoSybmol in ammosymbols) {
+			ammoSybmol.color = colour_change;
+		}
+		Invoke ("resetColour", 0.1f);
+	}	
+
+	void resetColour(){
+		foreach (RawImage ammoSybmol in ammosymbols) {
+			ammoSybmol.color = colour_original;
+		}
+	}
+
 	// Use this for initialization
 	void Awake () {
 		
@@ -19,7 +30,13 @@ public class HUDExteriorAmmo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Update both text objects to show variables
-		//When reloading equals true show reloaing text instead of mag contents
+		for (int i = 0; i < ExteriorPlayerController.MagSize; i++) {
+			if (i >= ExteriorPlayerController.CurrentMag){
+				ammosymbols[i].enabled = false;
+			} else {
+				Debug.Log("called2");
+				ammosymbols[i].enabled = true;
+			}
+		}
 	}
 }
