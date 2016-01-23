@@ -4,16 +4,11 @@ using System.Collections;
 
 public class HUDScore : MonoBehaviour {
 
-	Text TxtScore;
-	int Score; // Will Link Will Score Later
+	public Text TxtHighScore;
+	public Text TxtScore;
 
-	// Use this for initialization
-	void Awake () {
-		//Will give you score ScoreManager.Score
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		//Update score text to variable
+	void OnGUI(){
+		string score = ScoreManager.Score.ToString().PadLeft(6, '0');
+		TxtScore.text = "SCORE: " + score;
 	}
 }
