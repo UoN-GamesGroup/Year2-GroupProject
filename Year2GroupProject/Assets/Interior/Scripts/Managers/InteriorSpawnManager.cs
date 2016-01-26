@@ -7,6 +7,7 @@ using System.Collections;
 
 public class InteriorSpawnManager : MonoBehaviour {
 
+	public Transform spawn01, spawn02, spawn03, spawn04, spawn05;
 	public GameObject MainEnemy, SubEnemy, BossEnemy, VIPEnemy;
 	
 	int EnemiesInWorld, EnemiesLeftToSpawn;

@@ -47,7 +47,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 		}
 
 		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, VIPEnemies); // Send wave info to spawn manager
-
+		WaveManager.wave = Wave;
 		Debug.LogFormat ("Boss Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
 	}
 

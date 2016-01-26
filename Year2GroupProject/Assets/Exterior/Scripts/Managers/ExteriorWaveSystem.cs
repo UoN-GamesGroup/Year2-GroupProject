@@ -14,7 +14,6 @@ public class ExteriorWaveSystem : MonoBehaviour {
 	void Start(){
 		
 		spawnManager = this.gameObject.GetComponent<ExteriorSpawnManager>();
-		
 		setNextBossWave();
 		setNextObjectiveWave();
 		generateWave ();
@@ -37,8 +36,10 @@ public class ExteriorWaveSystem : MonoBehaviour {
 		if (Wave == NextBossWave) {
 			createBossWave();
 			setNextBossWave();
+			WaveManager.bossWave = true;
 		}else{
 			createWave();
+			WaveManager.bossWave = false;
 		}
 		if (Wave == NextObjectiveWave) {
 			createObjectives();
@@ -46,7 +47,7 @@ public class ExteriorWaveSystem : MonoBehaviour {
 		}
 		
 		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, VIPEnemies); // Send wave info to spawn manager
-		
+		WaveManager.wave = Wave;
 		Debug.LogFormat ("Boss Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
 	}
 	
