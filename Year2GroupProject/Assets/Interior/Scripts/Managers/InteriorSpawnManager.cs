@@ -7,7 +7,7 @@ using System.Collections;
 
 public class InteriorSpawnManager : MonoBehaviour {
 
-	public Transform spawn01, spawn02, spawn03, spawn04, spawn05;
+	public GameObject[] spawnLocations;
 	public GameObject MainEnemy, SubEnemy, BossEnemy, VIPEnemy;
 	
 	int EnemiesInWorld, EnemiesLeftToSpawn;
@@ -45,8 +45,8 @@ public class InteriorSpawnManager : MonoBehaviour {
 	}
 	
 	Vector3 getSpawnLocation(){
-		/******Enter Spawn Location Code Here******/
-		return new Vector3(100, 100, 100);
+		int r = Random.Range (0, 5);
+		return spawnLocations [r].transform.position;
 	}
 	
 	//Generates and enemy to spawn

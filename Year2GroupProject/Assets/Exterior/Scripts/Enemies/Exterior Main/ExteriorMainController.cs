@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InteriorMainController : MonoBehaviour {
+public class ExteriorMainController : MonoBehaviour {
 	
 	enum state{
 		approach,

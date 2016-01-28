@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InteriorMainFiring : MonoBehaviour {
+public class ExteriorMainFiring : MonoBehaviour {
 
 	enum state{
 		approach,
