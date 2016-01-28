@@ -82,6 +82,9 @@
     <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />
     <Compile Include="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" />
     <Compile Include="Assets\Goal.cs" />
+    <Compile Include="Assets\Interior\Objects\Enemies\InteriorMainController.cs" />
+    <Compile Include="Assets\Interior\Objects\Enemies\InteriorMainFiring.cs" />
+    <Compile Include="Assets\Interior\Objects\Enemies\InteriorMainMovement.cs" />
     <Compile Include="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" />
     <Compile Include="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" />
     <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletMovement.cs" />
