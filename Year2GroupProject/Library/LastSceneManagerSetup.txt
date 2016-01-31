@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Exterior/Scenes/Exterior_Level.unity
+- path: Assets/User Interface/Scenes/MainMenu.unity
   isLoaded: 1
   isActive: 1
