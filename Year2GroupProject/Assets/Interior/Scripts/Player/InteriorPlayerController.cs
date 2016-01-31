@@ -15,8 +15,11 @@ public class InteriorPlayerController : MonoBehaviour {
 	public GameObject Bullet;
 	public GameObject PlayerCamera;
 
-	public int MagSize = 12;
-	int CurrentMag;
+	public GameObject HUDAmmo;
+	HUDInteriorAmmo HUDAmmoScript;
+
+	public static int MagSize = 12;
+	public static int CurrentMag;
 	float FireRate = 0.5f;
 	float NextShot = 0.0f;
 	int ReloadSpeed = 5;
@@ -24,6 +27,7 @@ public class InteriorPlayerController : MonoBehaviour {
 	bool Reloading = false;
 
 	void Start(){
+		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDInteriorAmmo> ();
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
 	}
@@ -66,6 +70,7 @@ public class InteriorPlayerController : MonoBehaviour {
 
 	void fire(){
 		Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
+		HUDAmmoScript.bulletFired ();
 	}
 
 	void reload(){
