@@ -83,6 +83,7 @@
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDInteriorAmmo.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDScores.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDWave.cs" />
+     <Compile Include="Assets\User Interface\Scripts\LoadingIcon.cs" />
      <Compile Include="Assets\User Interface\Scripts\SplashScreen.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
