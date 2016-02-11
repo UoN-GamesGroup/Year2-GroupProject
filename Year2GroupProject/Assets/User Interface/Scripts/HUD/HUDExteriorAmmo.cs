@@ -34,7 +34,6 @@ public class HUDExteriorAmmo : MonoBehaviour {
 			if (i >= ExteriorPlayerController.CurrentMag){
 				ammosymbols[i].enabled = false;
 			} else {
-				Debug.Log("called2");
 				ammosymbols[i].enabled = true;
 			}
 		}

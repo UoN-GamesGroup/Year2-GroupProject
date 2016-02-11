@@ -62,6 +62,7 @@ public class ExteriorWaveSystem : MonoBehaviour {
 		//Temp wave algorithm
 		MainEnemies = (Wave * 5)+ 15;
 		SubEnemies = (Wave * 4)+ 10;
+		Bosses = Wave;
 	}
 	
 	void createObjectives(){

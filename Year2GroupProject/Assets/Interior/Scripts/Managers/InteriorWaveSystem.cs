@@ -13,9 +13,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 	InteriorSpawnManager spawnManager;
 
 	void Start(){
-
 		spawnManager = this.gameObject.GetComponent<InteriorSpawnManager>();
-
 		setNextBossWave();
 		setNextObjectiveWave();
 		generateWave ();
@@ -38,8 +36,10 @@ public class InteriorWaveSystem : MonoBehaviour {
 		if (Wave == NextBossWave) {
 			createBossWave();
 			setNextBossWave();
+			WaveManager.bossWave = true;
 		}else{
 			createWave();
+			WaveManager.bossWave = false;
 		}
 		if (Wave == NextObjectiveWave) {
 			createObjectives();
@@ -48,6 +48,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 
 		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, VIPEnemies); // Send wave info to spawn manager
 		WaveManager.wave = Wave;
+
 		Debug.LogFormat ("Boss Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
 	}
 
@@ -62,6 +63,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 		//Temp wave algorithm
 		MainEnemies = (Wave * 5)+ 15;
 		SubEnemies = (Wave * 4)+ 10;
+		Bosses = Wave;
 	}
 
 	void createObjectives(){

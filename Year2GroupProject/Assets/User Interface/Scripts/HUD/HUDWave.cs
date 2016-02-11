@@ -6,12 +6,12 @@ public class HUDWave : MonoBehaviour {
 
 	public Text waveType;
 	public Text waveNum;
+	string s;
 
-	void Update () {
-		if (WaveManager.bossWave)
-			waveType.text = "Boss Wave";
-		else
-			waveType.text = "";
+	void OnGUI () {
+		Debug.Log (WaveManager.bossWave);
+		s = WaveManager.bossWave ? "BOSS WAVE!" : " ";
+		waveType.text = s;
 
 		waveNum.text = "Wave: " + WaveManager.wave;
 	}

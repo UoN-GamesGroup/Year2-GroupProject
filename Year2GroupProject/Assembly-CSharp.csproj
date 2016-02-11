@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Common\Dev Area\Scripts\DevMovement.cs" />
      <Compile Include="Assets\Common\Dev Area\Scripts\DevStressSpawning.cs" />
+     <Compile Include="Assets\Common\Scripts\GameEvents.cs" />
      <Compile Include="Assets\Common\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Common\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Common\Scripts\WaveManager.cs" />
