@@ -28,6 +28,7 @@ public class ExteriorPlayerController : MonoBehaviour {
 	float XRotationV = 0.0f, YRotationV = 0.0f;
 
 	void Start(){
+		
 		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDExteriorAmmo> ();
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
@@ -63,6 +64,7 @@ public class ExteriorPlayerController : MonoBehaviour {
 			Reloading = false;
 			Debug.Log ("Weapon Reload. Current Ammo: " + CurrentMag);
 		}
+		HUDAmmoScript.setReloading (Reloading);
 	}
 
 	void checkCamera(){
