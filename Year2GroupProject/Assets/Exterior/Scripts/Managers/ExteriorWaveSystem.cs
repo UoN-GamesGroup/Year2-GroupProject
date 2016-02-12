@@ -36,10 +36,10 @@ public class ExteriorWaveSystem : MonoBehaviour {
 		if (Wave == NextBossWave) {
 			createBossWave();
 			setNextBossWave();
-			WaveManager.bossWave = true;
+			WaveManager.setWave(true);
 		}else{
 			createWave();
-			WaveManager.bossWave = false;
+			WaveManager.setWave(false);
 		}
 		if (Wave == NextObjectiveWave) {
 			createObjectives();
@@ -70,7 +70,13 @@ public class ExteriorWaveSystem : MonoBehaviour {
 	}
 	
 	void setNextBossWave(){
-		NextBossWave = NextBossWave + 1;
+		if (NextBossWave == 0) {
+			int r = Random.Range (3, 7);
+			NextBossWave = NextBossWave + r;
+		} else {
+			int r = Random.Range (1, 5);
+			NextBossWave = NextBossWave + r;
+		}
 	}
 	
 	void setNextObjectiveWave(){

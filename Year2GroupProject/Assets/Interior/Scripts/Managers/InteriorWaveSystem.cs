@@ -36,10 +36,10 @@ public class InteriorWaveSystem : MonoBehaviour {
 		if (Wave == NextBossWave) {
 			createBossWave();
 			setNextBossWave();
-			WaveManager.bossWave = true;
+			WaveManager.setWave(true);
 		}else{
 			createWave();
-			WaveManager.bossWave = false;
+			WaveManager.setWave(false);
 		}
 		if (Wave == NextObjectiveWave) {
 			createObjectives();
@@ -49,7 +49,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, VIPEnemies); // Send wave info to spawn manager
 		WaveManager.wave = Wave;
 
-		Debug.LogFormat ("Boss Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
+		Debug.LogFormat ("Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
 	}
 
 
@@ -71,7 +71,13 @@ public class InteriorWaveSystem : MonoBehaviour {
 	}
 
 	void setNextBossWave(){
-		NextBossWave = NextBossWave + 1;
+		if (NextBossWave == 0) {
+			int r = Random.Range (3, 7);
+			NextBossWave = NextBossWave + r;
+		} else {
+			int r = Random.Range (1, 5);
+			NextBossWave = NextBossWave + r;
+		}
 	}
 
 	void setNextObjectiveWave(){

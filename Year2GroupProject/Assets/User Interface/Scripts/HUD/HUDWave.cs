@@ -9,8 +9,7 @@ public class HUDWave : MonoBehaviour {
 	string s;
 
 	void OnGUI () {
-		Debug.Log (WaveManager.bossWave);
-		s = WaveManager.bossWave ? "BOSS WAVE!" : " ";
+		s = WaveManager.getWave() ? "BOSS WAVE!" : " ";
 		waveType.text = s;
 
 		waveNum.text = "Wave: " + WaveManager.wave;
