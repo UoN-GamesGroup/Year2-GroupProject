@@ -20,7 +20,7 @@ public class HUDHealth : MonoBehaviour {
 
 	void OnGUI () {
 		currentHealth = playerHealth.getPlayerHealth ();
-		percentageHealth = currentHealth / initialHealth; 
+		percentageHealth = (float) currentHealth / initialHealth; 
 		healthBar.fillAmount = percentageHealth;	
 	}
 

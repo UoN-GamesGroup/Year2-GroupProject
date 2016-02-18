@@ -22,7 +22,7 @@ public class InteriorSpawnManager : MonoBehaviour {
 	
 	/// <summary>
 	/// Is called by wave system pass wave contents.
-	/// Contents of the wave will then be spawned by the spawn manager.
+	/// Contents of the wave will then be spawned by the spawn manager.er
 	/// </summary>
 	public void setWaveInfo(int M, int S, int B, int V){
 		MainEnemies = M; SubEnemies = S; Bosses = B; VIPEnemies = V;

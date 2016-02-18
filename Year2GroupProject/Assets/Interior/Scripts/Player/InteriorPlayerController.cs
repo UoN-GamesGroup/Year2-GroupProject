@@ -30,10 +30,11 @@ public class InteriorPlayerController : MonoBehaviour {
 		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDInteriorAmmo> ();
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
+		Cursor.lockState= CursorLockMode.Confined;
+		Cursor.visible = false;
 	}
 
 	void FixedUpdate () {
-
 		checkCamera();
 
 		/****Player Controls****/

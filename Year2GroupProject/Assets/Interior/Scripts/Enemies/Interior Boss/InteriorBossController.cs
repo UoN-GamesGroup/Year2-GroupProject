@@ -14,35 +14,39 @@ public class InteriorBossController : MonoBehaviour {
 	InteriorBossMovement movementController;
 	InteriorBossFiring firingController;
 	state currentState;
+	GameObject player;
+
+	float distance;
+	public float targetRange = 0.5f;
 
 	//INITIALIZE VARIABLES HERE
 
 	void Start(){
 		movementController = this.GetComponent<InteriorBossMovement>();
 		firingController = this.GetComponent<InteriorBossFiring>();
+		player = GameObject.FindGameObjectWithTag("Player");
 		changeState(state.hunt);
 	}
 
 	void Update(){
 		//Checks health
-		if (Health < 0) {
+		if (Health <= 0) {
 			ScoreManager.Score += Score;
 			Destroy(this.gameObject);
 		}
 
-		//INSERT CHECKS TO DETERMINE STATE
-		/*
-		targetRange = Vector3.Distance (transform.position, targetPosition);
-		if (targetRange >= orbitRange) {
-			if (currentState != state.approach){
-				changeState(state.approach);
+		distance = Vector3.Distance(transform.position, player.gameObject.transform.position);
+
+		if (targetRange <= distance) {
+			if (currentState != state.hunt){
+				changeState(state.hunt);
 			}
 		} else {
-			if (currentState != state.orbit){
-				changeState(state.orbit);
+			if (currentState != state.attack){
+				changeState(state.attack);
 			}
 		}
-		*/
+
 	}
 
 	void changeState(state value){

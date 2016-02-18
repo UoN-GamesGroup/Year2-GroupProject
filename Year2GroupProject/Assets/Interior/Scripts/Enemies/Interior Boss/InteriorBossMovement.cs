@@ -5,6 +5,7 @@ public class InteriorBossMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
+		stateChanged ();
 	}
 
 	enum state{
@@ -15,7 +16,7 @@ public class InteriorBossMovement : MonoBehaviour {
 	state currentState;
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
-	public float movementSpeed = 2.0f;
+	public float movementSpeed = 0.1f;
 
 
 	void Start()
@@ -25,16 +26,8 @@ public class InteriorBossMovement : MonoBehaviour {
 
 	}
 
-	void FixedUpdate(){
-		//Keep Updating Target Location
+	void Update(){
 		agent.destination = target.position;
-
-		//Check state set to and run appropriate method
-		if (currentState == state.hunt) {
-			huntMovement ();
-		} else if (currentState == state.attack) {
-			attackMovement();
-		}
 	}
 
 
@@ -46,4 +39,12 @@ public class InteriorBossMovement : MonoBehaviour {
 	void attackMovement(){
 		agent.speed = 0;
 	}
+
+	void stateChanged(){
+		if (currentState == state.hunt) {
+			huntMovement ();
+		} else if (currentState == state.attack) {
+			attackMovement();
+		}
+	}  
 }

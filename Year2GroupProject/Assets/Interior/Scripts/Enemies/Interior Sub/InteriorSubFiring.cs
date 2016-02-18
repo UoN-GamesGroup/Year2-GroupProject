@@ -16,6 +16,7 @@ public class InteriorSubFiring : MonoBehaviour {
 	state currentState;
 	GameObject target;
 	Vector3 targetPosition;
+	int damage = 20;
 
 	void Start(){
 		//TEMP
@@ -51,6 +52,6 @@ public class InteriorSubFiring : MonoBehaviour {
 	}
 
 	void attackState(){
-
+		target.gameObject.GetComponent<PlayerHealth> ().dealDamage (damage);
 	}
 }

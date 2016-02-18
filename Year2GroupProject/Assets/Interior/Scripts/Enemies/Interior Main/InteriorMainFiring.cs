@@ -16,6 +16,7 @@ public class InteriorMainFiring : MonoBehaviour {
 	state currentState;
 	GameObject target;
 	Vector3 targetPosition;
+	int damage = 40;
 
 	void Start(){
 		//TEMP
@@ -51,6 +52,7 @@ public class InteriorMainFiring : MonoBehaviour {
 	}
 
 	void attackState(){
-
+		Debug.Log ("attack!");
+		target.gameObject.GetComponent<PlayerHealth> ().dealDamage (damage);
 	}
 }

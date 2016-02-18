@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Common\Dev Area\Scripts\DevMovement.cs" />
      <Compile Include="Assets\Common\Dev Area\Scripts\DevStressSpawning.cs" />
+     <Compile Include="Assets\Common\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Common\Scripts\GameEvents.cs" />
      <Compile Include="Assets\Common\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Common\Scripts\ScoreManager.cs" />
@@ -60,10 +61,10 @@
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubController.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubFiring.cs" />
      <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubMovement.cs" />
-     <Compile Include="Assets\Exterior\Scripts\ExteriorBossMissile.cs" />
-     <Compile Include="Assets\Exterior\Scripts\ExteriorBulletController.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Enemies\ExteriorBossMissile.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" />
      <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />
+     <Compile Include="Assets\Exterior\Scripts\Player\ExteriorBulletController.cs" />
      <Compile Include="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" />
      <Compile Include="Assets\Interior\Scripts\Enemies\Interior Boss\InteriorBossController.cs" />
      <Compile Include="Assets\Interior\Scripts\Enemies\Interior Boss\InteriorBossFiring.cs" />
@@ -77,7 +78,7 @@
      <Compile Include="Assets\Interior\Scripts\Environment\InteriorDoorController.cs" />
      <Compile Include="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" />
      <Compile Include="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" />
-     <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletMovement.cs" />
+     <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletController.cs" />
      <Compile Include="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" />
      <Compile Include="Assets\User Interface\Scripts\ChangeScene.cs" />
      <Compile Include="Assets\User Interface\Scripts\HUD\HUDExteriorAmmo.cs" />

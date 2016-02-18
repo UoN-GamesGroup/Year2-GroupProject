@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	void Update(){
-		Debug.Log (Health);
+		//Debug.Log ("Player Health: " + Health);
 
 		if (Health <= 0) {
 			gameEvents.gameOver ();

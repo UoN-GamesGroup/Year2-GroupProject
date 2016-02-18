@@ -5,6 +5,7 @@ public class InteriorMainMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
+		stateChanged ();
 	}
 
 	enum state{
@@ -15,7 +16,7 @@ public class InteriorMainMovement : MonoBehaviour {
 	state currentState;
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
-	public float movementSpeed = 2.0f;
+	public float movementSpeed = 0.2f;
     int huntMovementCount;
 
 
@@ -25,34 +26,40 @@ public class InteriorMainMovement : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent>();
 	}
 
-	void FixedUpdate(){
-		//Keep Updating Target Location
+	void Update(){
 		agent.destination = target.position;
-		//Check state set to and run appropriate method
-		if (currentState == state.hunt) {
-			huntMovement ();
-		} else if (currentState == state.attack) {
-			attackMovement();
-		}
 	}
 
 
 	void huntMovement(){
-        //Move To Target (set Speed to Movement Speed)
-        if (huntMovementCount == 3)
-        {
-            agent.speed = 0;
-        }
-        else agent.speed = movementSpeed++;
-    }
-}
+        if (huntMovementCount == 3){
+			agent.speed = 0;
+		} else {
+			agent.speed = movementSpeed;
+    	}
+
+		huntMovementCount++;
+		if (huntMovementCount == 4) {
+			huntMovementCount = 0;
+		}
+	}
 
 	void attackMovement(){
-    //Stop Movement (set Speed to 0)
-    InvokeRepeating("huntMovement()", 0.0f, 1.0f);
-    try (FixedUpdate);
-    CancelInvoke("huntMovement");
+		agent.speed = 0;
+		//Debug.Log ("STOP");
     }
 
-  
+	void stateChanged(){
+		try{
+			CancelInvoke ("huntMovement");
+		} 
+		catch{
+
+		}
+		if (currentState == state.hunt) {
+			InvokeRepeating("huntMovement", 0.0f, 1.0f);
+		} else if (currentState == state.attack) {
+			attackMovement();
+		}
+	}  
 }

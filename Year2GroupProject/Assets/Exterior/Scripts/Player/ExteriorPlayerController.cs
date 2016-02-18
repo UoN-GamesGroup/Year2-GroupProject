@@ -28,10 +28,11 @@ public class ExteriorPlayerController : MonoBehaviour {
 	float XRotationV = 0.0f, YRotationV = 0.0f;
 
 	void Start(){
-		
 		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDExteriorAmmo> ();
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
+		Cursor.lockState= CursorLockMode.Confined;
+		Cursor.visible = false;
 	}
 	
 	void Update () {
@@ -77,6 +78,6 @@ public class ExteriorPlayerController : MonoBehaviour {
 		CurrentYRotation = Mathf.SmoothDamp(CurrentYRotation, YRotation, ref YRotationV, LookSmoothDamp); 
 		
 		Frame.transform.rotation = Quaternion.Euler(0, CurrentYRotation, 0); 
-		transform.rotation = Quaternion.Euler(CurrentXRotation, CurrentYRotation, 0);
+		transform.rotation = Quaternion.Euler(-CurrentXRotation, CurrentYRotation, 0);
 	}
 }
