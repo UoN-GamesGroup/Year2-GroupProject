@@ -17,7 +17,7 @@ public class InteriorMainController : MonoBehaviour {
 	Transform player;
 
 	float distance;
-	float targetRange = 2.0f;
+	public float targetRange = 2.0f;
 
 	//INITIALIZE VARIABLES HERE
 

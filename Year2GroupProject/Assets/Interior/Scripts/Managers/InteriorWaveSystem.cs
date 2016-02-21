@@ -7,7 +7,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 		//Enemy algorithms
 
 	int Wave = 1;
-	int MainEnemies = 0, SubEnemies = 0, Bosses = 0, VIPEnemies = 0;
+	int MainEnemies = 0, SubEnemies = 0, Bosses = 0, DefendObjective = 0, VIPObjective;
 	int NextBossWave = 0, NextObjectiveWave = 0;
 
 	InteriorSpawnManager spawnManager;
@@ -15,7 +15,6 @@ public class InteriorWaveSystem : MonoBehaviour {
 	void Start(){
 		spawnManager = this.gameObject.GetComponent<InteriorSpawnManager>();
 		setNextBossWave();
-		setNextObjectiveWave();
 		generateWave ();
 	}
 
@@ -28,7 +27,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 	/// </summary>
 	public void waveCompleted(){
 		Wave++;
-		MainEnemies = 0; SubEnemies = 0; Bosses = 0; VIPEnemies = 0; // Check to make sure no values transferred to next wave
+		MainEnemies = 0; SubEnemies = 0; Bosses = 0; DefendObjective = 0; VIPObjective = 0; // Check to make sure no values transferred to next wave
 		generateWave ();
 	}
 
@@ -41,15 +40,11 @@ public class InteriorWaveSystem : MonoBehaviour {
 			createWave();
 			WaveManager.setWave(false);
 		}
-		if (Wave == NextObjectiveWave) {
-			createObjectives();
-			setNextObjectiveWave();
-		}
-
-		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, VIPEnemies); // Send wave info to spawn manager
+		createObjectives ();
+		spawnManager.setWaveInfo (MainEnemies, SubEnemies, Bosses, DefendObjective, VIPObjective); // Send wave info to spawn manager
 		WaveManager.wave = Wave;
 
-		Debug.LogFormat ("Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, VIP - {3}", MainEnemies, SubEnemies , Bosses, VIPEnemies);
+		Debug.LogFormat ("Wave Generated: Main - {0}, Sub - {1}, Bosses - {2}, Defend Objective - {3}, VIP Objective - " + VIPObjective, MainEnemies, SubEnemies , Bosses, DefendObjective);
 	}
 
 
@@ -67,7 +62,8 @@ public class InteriorWaveSystem : MonoBehaviour {
 	}
 
 	void createObjectives(){
-		//Temp wave algorithm
+		DefendObjective = 1;
+		VIPObjective = 1;
 	}
 
 	void setNextBossWave(){
@@ -78,9 +74,5 @@ public class InteriorWaveSystem : MonoBehaviour {
 			int r = Random.Range (1, 5);
 			NextBossWave = NextBossWave + r;
 		}
-	}
-
-	void setNextObjectiveWave(){
-		NextObjectiveWave = NextObjectiveWave + 1;
 	}
 }

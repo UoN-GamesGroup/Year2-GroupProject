@@ -16,33 +16,53 @@ public class InteriorBossMovement : MonoBehaviour {
 	state currentState;
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
-	public float movementSpeed = 0.1f;
+	public float movementSpeed = 0.01f;
+	int huntMovementCount;
+	Vector3 destination;
 
 
 	void Start()
 	{
 		target = GameObject.Find ("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
-
+		destination = agent.destination;
 	}
 
 	void Update(){
-		agent.destination = target.position;
+		if (Vector3.Distance (destination, target.position) > 1.0f) {
+			destination = target.position;
+			agent.destination = destination;
+		}
 	}
 
 
 	void huntMovement(){
-		//Move To Target (set Speed to Movement Speed)
-		agent.speed = 5;
+		if (huntMovementCount == 3){
+			agent.speed = 0;
+		} else {
+			agent.speed = movementSpeed;
+		}
+
+		huntMovementCount++;
+		if (huntMovementCount == 4) {
+			huntMovementCount = 0;
+		}
 	}
 
 	void attackMovement(){
 		agent.speed = 0;
+		//Debug.Log ("STOP");
 	}
 
 	void stateChanged(){
+		try{
+			CancelInvoke ("huntMovement");
+		} 
+		catch{
+
+		}
 		if (currentState == state.hunt) {
-			huntMovement ();
+			InvokeRepeating("huntMovement", 0.0f, 1.0f);
 		} else if (currentState == state.attack) {
 			attackMovement();
 		}

@@ -16,18 +16,22 @@ public class InteriorSubMovement : MonoBehaviour {
 	state currentState;
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
-	public float movementSpeed = 0.3f;
+	public float movementSpeed = 0.01f;
     int huntMovementCount;
+	Vector3 destination;
         
 	void Start()
 	{
 		target = GameObject.Find ("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
-
+		destination = agent.destination;
 	}
 
 	void Update(){
-		agent.destination = target.position;
+		if (Vector3.Distance (destination, target.position) > 1.0f) {
+			destination = target.position;
+			agent.destination = destination;
+		}
 	}
 
 
