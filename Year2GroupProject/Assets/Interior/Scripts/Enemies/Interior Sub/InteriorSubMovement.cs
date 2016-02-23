@@ -23,7 +23,7 @@ public class InteriorSubMovement : MonoBehaviour {
 	void Start()
 	{
 		target = GameObject.Find ("Player").transform;
-		agent = GetComponent<NavMeshAgent>();
+		agent = this.GetComponent<NavMeshAgent>();
 		destination = agent.destination;
 	}
 
@@ -37,7 +37,7 @@ public class InteriorSubMovement : MonoBehaviour {
 
 	void huntMovement(){
 		//Move To Target (set Speed to Movement Speed)
-		agent.speed = 5;
+		agent.speed = 5.0f;
 	}
 
 	void attackMovement(){

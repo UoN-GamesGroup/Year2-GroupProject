@@ -5,12 +5,14 @@ public class InteriorMainController : MonoBehaviour {
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	int Score = 50;
 	int Health = 100;
 
+	Animator animator;
 	InteriorMainMovement movementController;
 	InteriorMainFiring firingController;
 	state currentState;
@@ -24,27 +26,32 @@ public class InteriorMainController : MonoBehaviour {
 	void Start(){
 		movementController = this.GetComponent<InteriorMainMovement>();
 		firingController = this.GetComponent<InteriorMainFiring>();
+		animator = GetComponent<Animator> ();
 		player = GameObject.Find ("Player").transform;
+		changeState (state.hunt);
 	}
 
 	void Update(){
 		//Checks health
 		if (Health <= 0) {
+			changeState (state.death);
+			animator.SetBool ("Death", true);
 			ScoreManager.Score += Score;
-			Destroy(this.gameObject);
+			Invoke ("Die", 3.0f);
 		}
 
 		distance = Vector3.Distance(transform.position, player.position);
-		if (targetRange <= distance) {
+		if (currentState == state.death) {
+
+		} else if (targetRange <= distance) {
 			if (currentState != state.hunt){
 				changeState(state.hunt);
 			}
-		} else {
+		} else{
 			if (currentState != state.attack){
 				changeState(state.attack);
 			}
 		}
-
 	}
 
 	void changeState(state value){
@@ -55,5 +62,9 @@ public class InteriorMainController : MonoBehaviour {
 
 	public void dealDamage(int value){
 		Health -= value;
+	}
+
+	void die (){
+		Destroy (this.gameObject);
 	}
 }

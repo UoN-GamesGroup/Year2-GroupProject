@@ -10,7 +10,8 @@ public class InteriorMainMovement : MonoBehaviour {
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	state currentState;
@@ -19,10 +20,12 @@ public class InteriorMainMovement : MonoBehaviour {
 	public float movementSpeed = 0.01f;
     int huntMovementCount;
 	Vector3 destination;
+	Animator animator;
 
 
 	void Start()
 	{
+		animator = GetComponent<Animator> ();
 		target = GameObject.Find ("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
 		destination = agent.destination;
@@ -37,8 +40,10 @@ public class InteriorMainMovement : MonoBehaviour {
 
 
 	void huntMovement(){
+		animator.SetBool ("Walk", true);
         if (huntMovementCount == 3){
 			agent.speed = 0;
+			animator.SetBool ("Walk", false);
 		} else {
 			agent.speed = movementSpeed;
     	}
@@ -51,20 +56,18 @@ public class InteriorMainMovement : MonoBehaviour {
 
 	void attackMovement(){
 		agent.speed = 0;
-		//Debug.Log ("STOP");
+		animator.SetBool ("Walk", false);
     }
 
 	void stateChanged(){
-		try{
-			CancelInvoke ("huntMovement");
-		} 
-		catch{
-
-		}
 		if (currentState == state.hunt) {
-			InvokeRepeating("huntMovement", 0.0f, 1.0f);
+			InvokeRepeating ("huntMovement", 0.0f, 1.0f);
+			Debug.Log ("Do I GET CALLED!");
 		} else if (currentState == state.attack) {
-			attackMovement();
+			attackMovement ();
+		} else if (currentState == state.death) {
+			agent.speed = 0;
+			animator.SetBool ("Walk", false);
 		}
 	}  
 }
