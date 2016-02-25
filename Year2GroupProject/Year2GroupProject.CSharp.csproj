@@ -57,6 +57,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -78,10 +84,10 @@
     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubController.cs" />
     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubFiring.cs" />
     <Compile Include="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubMovement.cs" />
-    <Compile Include="Assets\Exterior\Scripts\ExteriorBossMissile.cs" />
-    <Compile Include="Assets\Exterior\Scripts\ExteriorBulletController.cs" />
+    <Compile Include="Assets\Exterior\Scripts\Enemies\ExteriorBossMissile.cs" />
     <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorSpawnManager.cs" />
     <Compile Include="Assets\Exterior\Scripts\Managers\ExteriorWaveSystem.cs" />
+    <Compile Include="Assets\Exterior\Scripts\Player\ExteriorBulletController.cs" />
     <Compile Include="Assets\Exterior\Scripts\Player\ExteriorPlayerController.cs" />
     <Compile Include="Assets\Interior\Scripts\Enemies\Interior Boss\InteriorBossController.cs" />
     <Compile Include="Assets\Interior\Scripts\Enemies\Interior Boss\InteriorBossFiring.cs" />
@@ -93,9 +99,10 @@
     <Compile Include="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubFiring.cs" />
     <Compile Include="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubMovement.cs" />
     <Compile Include="Assets\Interior\Scripts\Environment\InteriorDoorController.cs" />
+    <Compile Include="Assets\Interior\Scripts\Environment\InteriorTerminal.cs" />
     <Compile Include="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" />
     <Compile Include="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" />
-    <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletMovement.cs" />
+    <Compile Include="Assets\Interior\Scripts\Player\InteriorBulletController.cs" />
     <Compile Include="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" />
     <Compile Include="Assets\User Interface\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\User Interface\Scripts\HUD\HUDExteriorAmmo.cs" />
