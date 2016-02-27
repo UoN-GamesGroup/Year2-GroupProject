@@ -41,6 +41,7 @@ public class InteriorMainFiring : MonoBehaviour {
 			animator.SetBool ("Attack", true);
 			InvokeRepeating ("attackState", 2.0f, 0.5f); // Change these values if needed
 		} else if (currentState == state.death) {
+			animator.SetBool ("Attack", false);
 			try{
 				CancelInvoke ("attackState");
 			} 

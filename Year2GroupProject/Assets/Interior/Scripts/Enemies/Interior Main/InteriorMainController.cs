@@ -32,17 +32,14 @@ public class InteriorMainController : MonoBehaviour {
 	}
 
 	void Update(){
-		//Checks health
-		if (Health <= 0) {
-			changeState (state.death);
-			animator.SetBool ("Death", true);
-			ScoreManager.Score += Score;
-			Invoke ("Die", 3.0f);
-		}
-
 		distance = Vector3.Distance(transform.position, player.position);
-		if (currentState == state.death) {
-
+		if (Health <= 0) {
+			if (currentState != state.death){
+				changeState(state.death);
+				animator.SetBool ("Death", true);
+				ScoreManager.Score += Score;
+				Invoke ("die", 3.0f);
+			}
 		} else if (targetRange <= distance) {
 			if (currentState != state.hunt){
 				changeState(state.hunt);
