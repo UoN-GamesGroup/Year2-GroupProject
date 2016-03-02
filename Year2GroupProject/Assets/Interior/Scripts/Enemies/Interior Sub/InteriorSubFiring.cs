@@ -5,7 +5,8 @@ public class InteriorSubFiring : MonoBehaviour {
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	public void setState(int value){
@@ -16,10 +17,11 @@ public class InteriorSubFiring : MonoBehaviour {
 	state currentState;
 	GameObject target;
 	Vector3 targetPosition;
-	int damage = 20;
+	int damage = 40;
+	Animator animator;
 
 	void Start(){
-		//TEMP
+		animator = this.GetComponent<Animator> ();
 		target = GameObject.FindGameObjectWithTag("Player");
 	}
 
@@ -29,29 +31,28 @@ public class InteriorSubFiring : MonoBehaviour {
 
 	void updateFiringState(){
 		if (currentState == state.hunt) {
-			InvokeRepeating ("huntState", 2.0f, 0.5f); // Change these values if needed
+			animator.SetBool ("Attack", false);
+			try {
+				CancelInvoke ("attackState");
+			} catch {
+
+			}
+		} else if (currentState == state.attack) {
+			animator.SetBool ("Attack", true);
+			InvokeRepeating ("attackState", 2.0f, 0.5f); // Change these values if needed
+		} else if (currentState == state.death) {
+			animator.SetBool ("Attack", false);
 			try{
 				CancelInvoke ("attackState");
 			} 
 			catch{
 
 			}
-		} else if (currentState == state.attack) {
-			InvokeRepeating ("attackState", 2.0f, 0.5f); // Change these values if needed
-			try{
-				CancelInvoke ("huntState");
-			}
-			catch{
-
-			}
 		}
 	}
 
-	void huntState(){
-
-	}
-
 	void attackState(){
+
 		target.gameObject.GetComponent<PlayerHealth> ().dealDamage (damage);
 	}
 }

@@ -5,25 +5,33 @@ public class InteriorSubMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
+		try{
+			CancelInvoke("huntMovement");
+		} catch {
+
+		}
 		stateChanged ();
 	}
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	state currentState;
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
 	public float movementSpeed = 0.01f;
-    int huntMovementCount;
 	Vector3 destination;
-        
+	Animator animator;
+
+
 	void Start()
 	{
+		animator = GetComponent<Animator> ();
 		target = GameObject.Find ("Player").transform;
-		agent = this.GetComponent<NavMeshAgent>();
+		agent = GetComponent<NavMeshAgent>();
 		destination = agent.destination;
 	}
 
@@ -36,19 +44,25 @@ public class InteriorSubMovement : MonoBehaviour {
 
 
 	void huntMovement(){
-		//Move To Target (set Speed to Movement Speed)
-		agent.speed = 5.0f;
+		agent.Resume ();
+		animator.SetBool ("Walk", true);
+		Debug.Log ("HUNT MOVE");
 	}
 
 	void attackMovement(){
-		agent.speed = 0;
+		agent.Stop ();
+		animator.SetBool ("Walk", false);
+		Debug.Log ("ATTACK MOVE");
 	}
 
 	void stateChanged(){
 		if (currentState == state.hunt) {
-			huntMovement ();
+			InvokeRepeating ("huntMovement", 0.0f, 1.0f);
 		} else if (currentState == state.attack) {
-			attackMovement();
+			attackMovement ();
+		} else if (currentState == state.death) {
+			agent.Stop ();
+			animator.SetBool ("Walk", false);
 		}
 	}  
 }

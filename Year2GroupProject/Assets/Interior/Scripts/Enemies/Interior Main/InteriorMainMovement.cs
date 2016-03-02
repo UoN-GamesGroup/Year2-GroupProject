@@ -5,6 +5,11 @@ public class InteriorMainMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
+		try{
+			CancelInvoke("huntMovement");
+		} catch {
+
+		}
 		stateChanged ();
 	}
 
@@ -18,7 +23,6 @@ public class InteriorMainMovement : MonoBehaviour {
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
 	public float movementSpeed = 0.01f;
-    int huntMovementCount;
 	Vector3 destination;
 	Animator animator;
 
@@ -40,33 +44,24 @@ public class InteriorMainMovement : MonoBehaviour {
 
 
 	void huntMovement(){
+		agent.Resume ();
 		animator.SetBool ("Walk", true);
-        if (huntMovementCount == 3){
-			agent.speed = 0;
-			animator.SetBool ("Walk", false);
-		} else {
-			agent.speed = movementSpeed;
-    	}
-
-		huntMovementCount++;
-		if (huntMovementCount == 4) {
-			huntMovementCount = 0;
-		}
+		Debug.Log ("HUNT MOVE");
 	}
 
 	void attackMovement(){
-		agent.speed = 0;
+		agent.Stop ();
 		animator.SetBool ("Walk", false);
+		Debug.Log ("ATTACK MOVE");
     }
 
 	void stateChanged(){
 		if (currentState == state.hunt) {
 			InvokeRepeating ("huntMovement", 0.0f, 1.0f);
-			Debug.Log ("Do I GET CALLED!");
 		} else if (currentState == state.attack) {
 			attackMovement ();
 		} else if (currentState == state.death) {
-			agent.speed = 0;
+			agent.Stop ();
 			animator.SetBool ("Walk", false);
 		}
 	}  

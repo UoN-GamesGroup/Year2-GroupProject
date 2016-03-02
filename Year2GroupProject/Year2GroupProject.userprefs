@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainFiring.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs">
     <Files>
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainFiring.cs" Line="44" Column="37" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs" Line="66" Column="3" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubFiring.cs" Line="9" Column="8" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubMovement.cs" Line="68" Column="2" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainController.cs" Line="71" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

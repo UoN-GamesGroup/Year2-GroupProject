@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 4b337fc3e05629549a9973d45cb56cfb
+timeCreated: 1456850724
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Body
+    100004: Body 1
+    100006: Body_end
+    100008: Camera
+    100010: Cube
+    100012: Cylinder
+    100014: Head
+    100016: Head 1
+    100018: Head_end
+    100020: //RootNode
+    100022: L_Arm01
+    100024: L_Arm02
+    100026: L_Arm03
+    100028: L_Arm04
+    100030: L_Arm05
+    100032: L_Arm06
+    100034: L_Arm06_end
+    100036: Lamp
+    100038: Left Arm
+    100040: R_Arm01
+    100042: R_Arm02
+    100044: R_Arm03
+    100046: R_Arm04
+    100048: R_Arm05
+    100050: R_Arm06
+    100052: R_Arm06_end
+    100054: Right Arm
+    100056: Waist
+    100058: Waist 1
+    100060: Waist_end
+    100062: Wheel
+    100064: Wheel 1
+    100066: Wheel_end
+    400000: Armature
+    400002: Body
+    400004: Body 1
+    400006: Body_end
+    400008: Camera
+    400010: Cube
+    400012: Cylinder
+    400014: Head
+    400016: Head 1
+    400018: Head_end
+    400020: //RootNode
+    400022: L_Arm01
+    400024: L_Arm02
+    400026: L_Arm03
+    400028: L_Arm04
+    400030: L_Arm05
+    400032: L_Arm06
+    400034: L_Arm06_end
+    400036: Lamp
+    400038: Left Arm
+    400040: R_Arm01
+    400042: R_Arm02
+    400044: R_Arm03
+    400046: R_Arm04
+    400048: R_Arm05
+    400050: R_Arm06
+    400052: R_Arm06_end
+    400054: Right Arm
+    400056: Waist
+    400058: Waist 1
+    400060: Waist_end
+    400062: Wheel
+    400064: Wheel 1
+    400066: Wheel_end
+    2300000: Body 1
+    2300002: Cube
+    2300004: Cylinder
+    2300006: Head 1
+    2300008: Waist 1
+    2300010: Wheel 1
+    3300000: Body 1
+    3300002: Cube
+    3300004: Cylinder
+    3300006: Head 1
+    3300008: Waist 1
+    3300010: Wheel 1
+    4300000: Cube
+    4300002: Wheel
+    4300004: Body
+    4300006: Waist
+    4300008: Head
+    4300010: Right Arm
+    4300012: Left Arm
+    4300014: Cylinder
+    7400000: Armature|Attack
+    7400002: Armature|Dance
+    7400004: Armature|Death
+    7400006: Armature|Hurt
+    7400008: Armature|Idle
+    7400010: Armature|Move
+    9500000: //RootNode
+    13700000: Left Arm
+    13700002: Right Arm
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

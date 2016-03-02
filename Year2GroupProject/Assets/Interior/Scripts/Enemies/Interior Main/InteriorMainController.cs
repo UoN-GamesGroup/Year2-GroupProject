@@ -10,7 +10,7 @@ public class InteriorMainController : MonoBehaviour {
 	}
 
 	int Score = 50;
-	int Health = 100;
+	public int Health = 200;
 
 	Animator animator;
 	InteriorMainMovement movementController;
@@ -34,6 +34,7 @@ public class InteriorMainController : MonoBehaviour {
 	void Update(){
 		distance = Vector3.Distance(transform.position, player.position);
 		if (Health <= 0) {
+			Debug.Log ("Calling Dead");
 			if (currentState != state.death){
 				changeState(state.death);
 				animator.SetBool ("Death", true);
@@ -41,10 +42,12 @@ public class InteriorMainController : MonoBehaviour {
 				Invoke ("die", 3.0f);
 			}
 		} else if (targetRange <= distance) {
+			Debug.Log ("Calling Hunt");
 			if (currentState != state.hunt){
 				changeState(state.hunt);
 			}
 		} else{
+			Debug.Log ("Calling Attack");
 			if (currentState != state.attack){
 				changeState(state.attack);
 			}
@@ -59,6 +62,8 @@ public class InteriorMainController : MonoBehaviour {
 
 	public void dealDamage(int value){
 		Health -= value;
+		animator.SetBool ("Hurt", true);
+		animator.SetBool ("Hurt", false);
 	}
 
 	void die (){
