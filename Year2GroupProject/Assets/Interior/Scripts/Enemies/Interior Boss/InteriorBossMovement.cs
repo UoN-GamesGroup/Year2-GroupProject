@@ -5,24 +5,31 @@ public class InteriorBossMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
+		try{
+			CancelInvoke("huntMovement");
+		} catch {
+
+		}
 		stateChanged ();
 	}
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	state currentState;
 	Transform target; //Current Leave Public (Will be Passed Location By Another System later)
 	NavMeshAgent agent;
 	public float movementSpeed = 0.01f;
-	int huntMovementCount;
 	Vector3 destination;
+	Animator animator;
 
 
 	void Start()
 	{
+		animator = GetComponent<Animator> ();
 		target = GameObject.Find ("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
 		destination = agent.destination;
@@ -37,34 +44,25 @@ public class InteriorBossMovement : MonoBehaviour {
 
 
 	void huntMovement(){
-		if (huntMovementCount == 3){
-			agent.speed = 0;
-		} else {
-			agent.speed = movementSpeed;
-		}
-
-		huntMovementCount++;
-		if (huntMovementCount == 4) {
-			huntMovementCount = 0;
-		}
+		agent.Resume ();
+		animator.SetBool ("Walk", true);
+		Debug.Log ("HUNT MOVE");
 	}
 
 	void attackMovement(){
-		agent.speed = 0;
-		//Debug.Log ("STOP");
+		agent.Stop ();
+		animator.SetBool ("Walk", false);
+		Debug.Log ("ATTACK MOVE");
 	}
 
 	void stateChanged(){
-		try{
-			CancelInvoke ("huntMovement");
-		} 
-		catch{
-
-		}
 		if (currentState == state.hunt) {
-			InvokeRepeating("huntMovement", 0.0f, 1.0f);
+			InvokeRepeating ("huntMovement", 0.0f, 1.0f);
 		} else if (currentState == state.attack) {
-			attackMovement();
+			attackMovement ();
+		} else if (currentState == state.death) {
+			agent.Stop ();
+			animator.SetBool ("Walk", false);
 		}
 	}  
 }

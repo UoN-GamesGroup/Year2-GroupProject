@@ -18,7 +18,7 @@ public class InteriorPlayerController : MonoBehaviour {
 	public GameObject HUDAmmo;
 	HUDInteriorAmmo HUDAmmoScript;
 
-	public static int MagSize = 12;
+	public static int MagSize = 22;
 	public static int CurrentMag;
 	float FireRate = 0.5f;
 	float NextShot = 0.0f;
@@ -31,10 +31,10 @@ public class InteriorPlayerController : MonoBehaviour {
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
 		Cursor.lockState= CursorLockMode.Confined;
-		Cursor.visible = false;
 	}
 
 	void FixedUpdate () {
+		Cursor.visible = false;
 		checkCamera();
 
 		/****Player Controls****/

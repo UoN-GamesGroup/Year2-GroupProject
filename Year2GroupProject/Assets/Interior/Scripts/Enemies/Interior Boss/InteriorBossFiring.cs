@@ -5,7 +5,8 @@ public class InteriorBossFiring : MonoBehaviour {
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	public void setState(int value){
@@ -17,38 +18,37 @@ public class InteriorBossFiring : MonoBehaviour {
 	GameObject target;
 	Vector3 targetPosition;
 	int damage = 80;
+	Animator animator;
 
 	void Start(){
-		//TEMP
+		animator = this.GetComponent<Animator> ();
 		target = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	void Update(){
-		targetPosition = target.gameObject.transform.position;
+		targetPosition = target.transform.position;
 	}
 
 	void updateFiringState(){
 		if (currentState == state.hunt) {
-			InvokeRepeating ("huntState", 2.0f, 0.5f); // Change these values if needed
+			animator.SetBool ("Attack", false);
+			try {
+				CancelInvoke ("attackState");
+			} catch {
+
+			}
+		} else if (currentState == state.attack) {
+			animator.SetBool ("Attack", true);
+			InvokeRepeating ("attackState", 0.0f, 3.5f); // Change these values if needed
+		} else if (currentState == state.death) {
+			animator.SetBool ("Attack", false);
 			try{
 				CancelInvoke ("attackState");
 			} 
 			catch{
 
 			}
-		} else if (currentState == state.attack) {
-			InvokeRepeating ("attackState", 2.0f, 0.5f); // Change these values if needed
-			try{
-				CancelInvoke ("huntState");
-			}
-			catch{
-
-			}
 		}
-	}
-
-	void huntState(){
-
 	}
 
 	void attackState(){

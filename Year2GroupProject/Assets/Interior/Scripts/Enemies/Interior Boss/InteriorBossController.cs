@@ -5,48 +5,52 @@ public class InteriorBossController : MonoBehaviour {
 
 	enum state{
 		hunt,
-		attack
+		attack,
+		death
 	}
 
 	int Score = 50;
-	int Health = 100;
+	public int Health = 500;
 
 	InteriorBossMovement movementController;
 	InteriorBossFiring firingController;
 	state currentState;
-	GameObject player;
-
+	Transform player;
+	Animator animator;
 	float distance;
-	public float targetRange = 0.5f;
+	public float targetRange = 6.0f;
 
 	//INITIALIZE VARIABLES HERE
 
 	void Start(){
 		movementController = this.GetComponent<InteriorBossMovement>();
 		firingController = this.GetComponent<InteriorBossFiring>();
-		player = GameObject.FindGameObjectWithTag("Player");
-		changeState(state.hunt);
+		animator = GetComponent<Animator> ();
+		player = GameObject.Find ("Player").transform;
+		changeState (state.hunt);
 	}
 
 	void Update(){
-		//Checks health
+		distance = Vector3.Distance(transform.position, player.position);
 		if (Health <= 0) {
-			ScoreManager.Score += Score;
-			Destroy(this.gameObject);
-		}
-
-		distance = Vector3.Distance(transform.position, player.gameObject.transform.position);
-
-		if (targetRange <= distance) {
+			Debug.Log ("Calling Dead");
+			if (currentState != state.death){
+				changeState(state.death);
+				animator.SetBool ("Death", true);
+				ScoreManager.Score += Score;
+				Invoke ("die", 3.0f);
+			}
+		} else if (targetRange <= distance) {
+			Debug.Log ("Calling Hunt");
 			if (currentState != state.hunt){
 				changeState(state.hunt);
 			}
-		} else {
+		} else{
+			Debug.Log ("Calling Attack");
 			if (currentState != state.attack){
 				changeState(state.attack);
 			}
 		}
-
 	}
 
 	void changeState(state value){
@@ -57,5 +61,11 @@ public class InteriorBossController : MonoBehaviour {
 
 	public void dealDamage(int value){
 		Health -= value;
+		animator.SetBool ("Hurt", true);
+		animator.SetBool ("Hurt", false);
+	}
+
+	void die (){
+		Destroy (this.gameObject);
 	}
 }

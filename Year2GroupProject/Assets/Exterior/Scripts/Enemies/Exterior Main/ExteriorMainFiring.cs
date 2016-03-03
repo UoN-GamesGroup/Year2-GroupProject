@@ -13,7 +13,6 @@ public class ExteriorMainFiring : MonoBehaviour {
 	}
 
 	public GameObject acidEmitter;
-	ParticleSystem acidParticleSystem;
 
 	ExteriorMainMovement movementController;
 	state currentState;
@@ -22,22 +21,18 @@ public class ExteriorMainFiring : MonoBehaviour {
 	GameObject target;
 
 	void Awake () {
-		acidParticleSystem = acidEmitter.GetComponent<ParticleSystem>();
 		movementController = this.GetComponent<ExteriorMainMovement>();
-		acidParticleSystem.enableEmission = false;
 		//TEMP
 		target = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	public void startStraithFiring(){
 		Debug.Log ("Acid Activated");
-		acidParticleSystem.enableEmission = true;
 		InvokeRepeating ("damagePlayerAcid", 0f, 0.5f);
 		Invoke ("stopStraithFiringAcid", 3f);
 	}
 
 	void stopStraithFiring(){
-		acidParticleSystem.enableEmission = false;
 		CancelInvoke ("damagePlayerAcid");
 		movementController.finishedStraithFiring ();
 	}

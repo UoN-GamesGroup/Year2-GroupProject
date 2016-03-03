@@ -63,7 +63,7 @@ public class InteriorWaveSystem : MonoBehaviour {
 
 	void createObjectives(){
 		DefendObjective = 1;
-		VIPObjective = 1;
+		VIPObjective = 0;
 	}
 
 	void setNextBossWave(){

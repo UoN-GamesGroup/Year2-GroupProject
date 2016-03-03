@@ -1,11 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Common\Scripts\GameEvents.cs">
     <Files>
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs" Line="66" Column="3" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubFiring.cs" Line="9" Column="8" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubMovement.cs" Line="68" Column="2" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainController.cs" Line="71" Column="3" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainFiring.cs" Line="29" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\ChangeScene.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Boss\ExteriorBossFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\SplashScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Common\Scripts\GameEvents.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

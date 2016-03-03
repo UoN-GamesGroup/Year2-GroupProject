@@ -4,6 +4,10 @@ using System.Collections;
 
 public class ChangeScene : MonoBehaviour {
 
+	void Start(){
+		Cursor.visible = true;
+	}
+
 	public GameObject loadingContents;
 	bool loadScene = false;
 
