@@ -39,6 +39,7 @@ public class InteriorSubController : MonoBehaviour {
 				changeState(state.death);
 				animator.SetBool ("Death", true);
 				ScoreManager.Score += Score;
+				ScoreManager.Kills++;
 				Invoke ("die", 4.0f);
 			}
 		} else if (targetRange <= distance) {

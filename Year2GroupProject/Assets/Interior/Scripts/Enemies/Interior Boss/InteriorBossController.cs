@@ -38,6 +38,7 @@ public class InteriorBossController : MonoBehaviour {
 				changeState(state.death);
 				animator.SetBool ("Death", true);
 				ScoreManager.Score += Score;
+				ScoreManager.Kills++;
 				Invoke ("die", 3.0f);
 			}
 		} else if (targetRange <= distance) {

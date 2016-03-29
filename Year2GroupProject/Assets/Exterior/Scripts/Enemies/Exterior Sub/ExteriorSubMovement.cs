@@ -5,21 +5,27 @@ public class ExteriorSubMovement : MonoBehaviour {
 	
 	public void setState(int value){
 		currentState = (state)value;
+		if (currentState != state.death) {
+			animator.SetBool ("move", true);
+		} else {
+			animator.SetBool ("move", false);
+		}
 	}
 	
 	enum state{
 		approach,
-		attack
+		attack,
+		death
 	}
 	
 	state currentState;
-	Vector3 targetPosition = new Vector3 (0, 0, 0);
+	Transform targetPosition;
 	float movementSpeed = 0.2f;
-	
+	Animator animator;
 	
 	void Start(){
-		//Generate MovementSpeed
-		//Get TargetPosition
+		animator = GetComponent<Animator> ();
+		targetPosition = GameObject.Find ("Player").transform;
 	}
 	
 	void FixedUpdate(){
@@ -27,6 +33,7 @@ public class ExteriorSubMovement : MonoBehaviour {
 			approachMovement ();
 		} else if (currentState == state.attack) {
 			attackMovement();
+		} else if (currentState == state.death) {
 		}
 	}
 	

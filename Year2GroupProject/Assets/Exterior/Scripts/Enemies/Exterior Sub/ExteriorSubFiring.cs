@@ -5,7 +5,8 @@ public class ExteriorSubFiring : MonoBehaviour {
 
 	enum state{
 		approach,
-		attack
+		attack,
+		death
 	}
 	
 	public void setState(int value){
@@ -18,14 +19,17 @@ public class ExteriorSubFiring : MonoBehaviour {
 	int biteCounter;
 	int biteDamage = 10;
 	GameObject target;
+	Animator animator;
 
 	void Start(){
 		//TEMP
 		target = GameObject.FindGameObjectWithTag("Player");
+		animator = GetComponent<Animator> ();
 	}
 
 	void updateFiringState(){
 		if (currentState == state.approach) {
+			animator.SetBool ("attack", false);
 			try{
 				CancelInvoke ("biteAttack");
 			} 
@@ -33,6 +37,7 @@ public class ExteriorSubFiring : MonoBehaviour {
 				
 			}
 		} else if (currentState == state.attack) {
+			animator.SetBool ("attack", true);
 			InvokeRepeating ("biteAttack", 3.0f, 1.0f);
 			try{
 

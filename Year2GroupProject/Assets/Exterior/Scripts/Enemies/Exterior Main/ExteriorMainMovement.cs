@@ -5,16 +5,22 @@ public class ExteriorMainMovement : MonoBehaviour {
 
 	public void setState(int value){
 		currentState = (state)value;
+		if (currentState != state.death) {
+			animator.SetBool ("move", true);
+		} else {
+			animator.SetBool ("move", false);
+		}
 	}
 	
 	enum state{
 		approach,
-		straith
+		straith,
+		death
 	}
 
 	ExteriorMainFiring firingController;
 	state currentState;
-	Vector3 targetPosition = new Vector3 (0, 0, 0);
+	Transform targetPosition;
 	float movementSpeed = 0.05f;
 	float straithSpeed = 0.2f;
 	int straithStage = 1;
@@ -24,10 +30,12 @@ public class ExteriorMainMovement : MonoBehaviour {
 	bool straithMoving = true;
 	bool straithDirection = true;
 	float straithMovementCountdown;
-
+	Animator animator;
 	public GameObject meshBody;
 
 	void Start () { 
+		animator = GetComponent<Animator> ();
+		targetPosition = GameObject.Find ("Player").transform;
 		straithMovementCountdown = Random.Range (2, 8);
 		firingController = this.GetComponent<ExteriorMainFiring>();
 	}
@@ -47,6 +55,7 @@ public class ExteriorMainMovement : MonoBehaviour {
 					straithMovementCountdown -= Time.deltaTime;
 				}
 			}
+		}else if (currentState == state.death) {
 		}
 	}
 	

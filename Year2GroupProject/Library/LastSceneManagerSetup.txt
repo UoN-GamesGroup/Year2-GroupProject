@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/User Interface/Scenes/LevelSelectionMenu.unity
+- path: Assets/User Interface/Scenes/MainMenu.unity
   isLoaded: 1
   isActive: 1

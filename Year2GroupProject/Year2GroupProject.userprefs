@@ -1,20 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Common\Scripts\GameEvents.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\User Interface\Scripts\OptionsMenuSound.cs">
     <Files>
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainFiring.cs" Line="29" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Managers\InteriorSpawnManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Managers\InteriorWaveSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\User Interface\Scripts\OptionsMenuSound.cs" Line="12" Column="4" />
+      <File FileName="Assets\Common\Scripts\SoundManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Interior\Scripts\Player\InteriorPlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\User Interface\Scripts\ChangeScene.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Main\InteriorMainController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Boss\ExteriorBossMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Boss\ExteriorBossFiring.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubFiring.cs" Line="1" Column="1" />
-      <File FileName="Assets\Interior\Scripts\Enemies\Interior Sub\InteriorSubMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\User Interface\Scripts\SplashScreen.cs" Line="1" Column="1" />
-      <File FileName="Assets\Common\Scripts\GameEvents.cs" Line="17" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubFiring.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Sub\ExteriorSubMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Exterior\Scripts\Enemies\Exterior Main\ExteriorMainController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -14,11 +14,17 @@ public class InteriorSubFiring : MonoBehaviour {
 		updateFiringState ();
 	}
 
-	state currentState;
+	public GameObject Bullet;
+	public GameObject BulletEmitter;
 	GameObject target;
-	Vector3 targetPosition;
-	int damage = 40;
+
 	Animator animator;
+
+	Vector3 targetPosition;
+	state currentState;
+
+	int damage = 40;
+
 
 	void Start(){
 		animator = this.GetComponent<Animator> ();
@@ -39,7 +45,7 @@ public class InteriorSubFiring : MonoBehaviour {
 			}
 		} else if (currentState == state.attack) {
 			animator.SetBool ("Attack", true);
-			InvokeRepeating ("attackState", 2.0f, 0.5f); // Change these values if needed
+			InvokeRepeating ("attackState", 2.0f, 1f); // Change these values if needed
 		} else if (currentState == state.death) {
 			animator.SetBool ("Attack", false);
 			try{
@@ -52,7 +58,6 @@ public class InteriorSubFiring : MonoBehaviour {
 	}
 
 	void attackState(){
-
-		target.gameObject.GetComponent<PlayerHealth> ().dealDamage (damage);
+		Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
 	}
 }

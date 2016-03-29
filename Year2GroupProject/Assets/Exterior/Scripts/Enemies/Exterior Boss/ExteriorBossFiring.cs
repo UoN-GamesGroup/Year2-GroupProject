@@ -5,7 +5,8 @@ public class ExteriorBossFiring : MonoBehaviour {
 	
 	enum state{
 		approach,
-		orbit
+		orbit,
+		death
 	}
 
 	public void setState(int value){
@@ -21,7 +22,7 @@ public class ExteriorBossFiring : MonoBehaviour {
 	bool laserActive = false;
 	bool laserFiring = false;
 	int laserDamage = 20;
-
+	Animator animator;
 	GameObject target;
 
 	public GameObject laser;
@@ -31,9 +32,9 @@ public class ExteriorBossFiring : MonoBehaviour {
 	public GameObject missileEmitterLeft;
 	public GameObject missileEmitterRight;
 	public GameObject missile;
-	
+
 	void Start(){
-		//TEMP
+		animator = GetComponent<Animator> ();
 		target = GameObject.FindGameObjectWithTag("Player");
 
 		laserLine = laser.GetComponent<LineRenderer> ();

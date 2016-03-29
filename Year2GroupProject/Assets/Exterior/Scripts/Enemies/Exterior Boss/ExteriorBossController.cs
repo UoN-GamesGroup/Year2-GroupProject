@@ -5,12 +5,14 @@ public class ExteriorBossController : MonoBehaviour {
 
 	enum state{
 		approach,
-		orbit
+		orbit,
+		death
 	}
 
 	int Score = 50;
 	int Health = 100;
 
+	Animator animator;
 	ExteriorBossMovement movementController;
 	ExteriorBossFiring firingController;
 	Vector3 targetPosition = new Vector3 (0, 0, 0);
@@ -19,15 +21,21 @@ public class ExteriorBossController : MonoBehaviour {
 	float orbitRange = 100;
 
 	void Start(){
+		animator = GetComponent<Animator> ();
 		movementController = this.GetComponent<ExteriorBossMovement>();
 		firingController = this.GetComponent<ExteriorBossFiring>();
 		changeState(state.approach);
 	}
 
 	void Update(){
-		if (Health < 0) {
-			ScoreManager.Score += Score;
-			Destroy(this.gameObject);
+		if (Health <= 0) {
+			if (currentState != state.death) {
+				changeState (state.death);
+				animator.SetBool ("Death", true);
+				ScoreManager.Score += Score;
+				ScoreManager.Kills++;
+			}
+			Invoke ("die", 2.0f);
 		}
 		targetRange = Vector3.Distance (transform.position, targetPosition);
 		if (targetRange >= orbitRange) {
@@ -49,5 +57,11 @@ public class ExteriorBossController : MonoBehaviour {
 
 	public void dealDamage(int value){
 		Health -= value;
+		animator.SetBool ("hurt", true);
+		animator.SetBool ("hurt", false);
+	}
+		
+	void die(){
+		Destroy(this.gameObject);
 	}
 }

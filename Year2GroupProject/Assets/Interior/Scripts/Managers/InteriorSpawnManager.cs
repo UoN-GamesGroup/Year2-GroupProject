@@ -54,6 +54,7 @@ public class InteriorSpawnManager : MonoBehaviour {
 			if (EnemiesInWorld == 0 && DefendObjectiveActive == false && VIPObjectiveActive == false) {
 				if (NewWaveCalled == false){
 					waveCompleted ();
+					StopCoroutine (spawnDirector ());
 					NewWaveCalled = true;
 				}
 			}
@@ -74,10 +75,10 @@ public class InteriorSpawnManager : MonoBehaviour {
 	IEnumerator spawnDirector(){
 		yield return new WaitForSeconds(5); // Initial Wave Wait
 
-		while(EnemiesLeftToSpawn > 0){
+		while(EnemiesLeftToSpawn > 0 && DefendObjective == 0 && VIPObjective == 0){
 
 			if (DefendObjectiveActive == false && VIPObjectiveActive == false) {
-				int r = Random.Range (1, 3);
+				/*int r = Random.Range (1, 3);
 				if (r == 1) {
 					Instantiate (VIPEnemy, getSpawnLocation(), Quaternion.LookRotation(new Vector3(0,0,0)));
 					VIPObjective--;
@@ -85,7 +86,7 @@ public class InteriorSpawnManager : MonoBehaviour {
 				} else {
 					spawnDefendObjective();
 					DefendObjective--;
-				}
+				}*/
 			}
 
 			Instantiate (getEnemy(), getSpawnLocation(), Quaternion.LookRotation(new Vector3(0,0,0)));

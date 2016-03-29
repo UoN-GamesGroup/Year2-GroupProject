@@ -14,20 +14,26 @@ public class InteriorPlayerController : MonoBehaviour {
 	public GameObject BulletEmitter;
 	public GameObject Bullet;
 	public GameObject PlayerCamera;
+	public GameObject PlayerArm;
+	Animator playerAnimator;
 
 	public GameObject HUDAmmo;
 	HUDInteriorAmmo HUDAmmoScript;
 
 	public static int MagSize = 22;
 	public static int CurrentMag;
+
+	public AudioClip laserFire;
 	float FireRate = 0.5f;
 	float NextShot = 0.0f;
 	int ReloadSpeed = 5;
 	int ReloadCountdown;
 	bool Reloading = false;
+	bool Moving = false;
 
 	void Start(){
 		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDInteriorAmmo> ();
+		playerAnimator = PlayerArm.GetComponent<Animator> ();
 		CurrentMag = MagSize;
 		InvokeRepeating("reload", 0.0f, 1.0f);
 		Cursor.lockState= CursorLockMode.Confined;
@@ -36,23 +42,27 @@ public class InteriorPlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		Cursor.visible = false;
 		checkCamera();
-
+		Moving = false;
 		/****Player Controls****/
 		//MoveForward
 		if (Input.GetKey(KeyCode.W)){
 			transform.localPosition += transform.forward * MovementSpeed * Time.deltaTime;  
+			Moving = true;
 		}
 		//MoveLeft
 		if (Input.GetKey(KeyCode.A)){
-			transform.localPosition -= transform.right * MovementSpeed * Time.deltaTime;  
+			transform.localPosition -= transform.right * MovementSpeed * Time.deltaTime; 
+			Moving = true;
 		}
 		//MoveBack
 		if (Input.GetKey(KeyCode.S)){
-			transform.localPosition -= transform.forward * MovementSpeed * Time.deltaTime;  
+			transform.localPosition -= transform.forward * MovementSpeed * Time.deltaTime;
+			Moving = true;
 		}
 		//MoveRight
 		if (Input.GetKey(KeyCode.D)){
-			transform.localPosition += transform.right * MovementSpeed * Time.deltaTime;  
+			transform.localPosition += transform.right * MovementSpeed * Time.deltaTime;
+			Moving = true;
 		}
 
 		//Reload
@@ -67,11 +77,16 @@ public class InteriorPlayerController : MonoBehaviour {
 			Debug.Log(CurrentMag);
 			fire ();
 		}
+		playerAnimator.SetBool ("Moving", Moving); 
 	}
 
 	void fire(){
-		Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
-		HUDAmmoScript.bulletFired ();
+		if (Reloading == false) {
+			SoundManager.instance.playRandomSFX (laserFire);
+			Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
+			PlayerArm.GetComponent<Animation> ().Play();
+			HUDAmmoScript.bulletFired ();
+		}
 	}
 
 	void reload(){
