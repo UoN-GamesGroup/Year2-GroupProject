@@ -19,13 +19,12 @@ public class ExteriorSubMovement : MonoBehaviour {
 	}
 	
 	state currentState;
-	Transform targetPosition;
+	Vector3 targetPosition = new Vector3 (0, 0, 0);
 	float movementSpeed = 0.2f;
 	Animator animator;
 	
 	void Start(){
 		animator = GetComponent<Animator> ();
-		targetPosition = GameObject.Find ("Player").transform;
 	}
 	
 	void FixedUpdate(){

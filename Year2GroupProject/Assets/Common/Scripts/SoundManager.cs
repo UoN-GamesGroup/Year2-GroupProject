@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip[] audioTracks;
 	public static SoundManager instance = null;
 
-	float volume = 1.0f;
 	float lowPitchRange = 0.95f;
 	float highPitchRange = 1.05f;
 
@@ -20,10 +19,18 @@ public class SoundManager : MonoBehaviour {
 		}
 
 		DontDestroyOnLoad (gameObject);
+
+		if (!PlayerPrefs.HasKey ("musicVolume")) {
+			PlayerPrefs.SetFloat ("musicVolume", 1.0f);
+		}
+		if (!PlayerPrefs.HasKey ("sfxVolume")) {
+			PlayerPrefs.SetFloat ("sfxVolume", 1.0f);
+		}
 	}
 
 	void Update(){
-		musicSource.volume = volume;
+		musicSource.volume = PlayerPrefs.GetFloat ("musicVolume");
+		sfxSource.volume = PlayerPrefs.GetFloat ("sfxVolume");
 
 		if (!musicSource.isPlaying) {
 			playRandomTrack (audioTracks);

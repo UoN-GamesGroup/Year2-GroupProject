@@ -94,6 +94,7 @@
      <Compile Include="Assets\User Interface\Scripts\LoadingIcon.cs" />
      <Compile Include="Assets\User Interface\Scripts\LoadingScreen.cs" />
      <Compile Include="Assets\User Interface\Scripts\OptionsMenuSound.cs" />
+     <Compile Include="Assets\User Interface\Scripts\PlayerStatsMenu.cs" />
      <Compile Include="Assets\User Interface\Scripts\SplashScreen.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

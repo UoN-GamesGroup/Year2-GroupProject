@@ -32,6 +32,7 @@ public class InteriorPlayerController : MonoBehaviour {
 	bool Moving = false;
 
 	void Start(){
+		PlayerPrefs.SetString ("Level_LastGame", "interior");
 		HUDAmmoScript = HUDAmmo.gameObject.GetComponent<HUDInteriorAmmo> ();
 		playerAnimator = PlayerArm.GetComponent<Animator> ();
 		CurrentMag = MagSize;

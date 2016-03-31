@@ -20,7 +20,7 @@ public class ExteriorMainMovement : MonoBehaviour {
 
 	ExteriorMainFiring firingController;
 	state currentState;
-	Transform targetPosition;
+	Vector3 targetPosition = new Vector3 (0, 0, 0);
 	float movementSpeed = 0.05f;
 	float straithSpeed = 0.2f;
 	int straithStage = 1;
@@ -35,7 +35,7 @@ public class ExteriorMainMovement : MonoBehaviour {
 
 	void Start () { 
 		animator = GetComponent<Animator> ();
-		targetPosition = GameObject.Find ("Player").transform;
+		Vector3 targetPosition = new Vector3 (0, 0, 0);
 		straithMovementCountdown = Random.Range (2, 8);
 		firingController = this.GetComponent<ExteriorMainFiring>();
 	}

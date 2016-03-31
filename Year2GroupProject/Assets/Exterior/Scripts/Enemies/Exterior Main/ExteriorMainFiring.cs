@@ -26,7 +26,6 @@ public class ExteriorMainFiring : MonoBehaviour {
 
 	void Awake () {
 		movementController = this.GetComponent<ExteriorMainMovement>();
-		//TEMP
 		target = GameObject.FindGameObjectWithTag("Player");
 
 		emitter = acidEmitter.GetComponent<ParticleEmitter> ();

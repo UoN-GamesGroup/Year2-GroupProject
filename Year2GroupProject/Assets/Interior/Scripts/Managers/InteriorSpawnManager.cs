@@ -69,28 +69,16 @@ public class InteriorSpawnManager : MonoBehaviour {
 		MainEnemies = M; SubEnemies = S; Bosses = B; DefendObjective = DO; VIPObjective = VIPO;
 		EnemiesLeftToSpawn = MainEnemies + SubEnemies + VIPObjective;
 		NewWaveCalled = false;
+
 		StartCoroutine (spawnDirector());
 	}
 	
 	IEnumerator spawnDirector(){
-		yield return new WaitForSeconds(5); // Initial Wave Wait
+		yield return new WaitForSeconds(2); // Initial Wave Wait
 
-		while(EnemiesLeftToSpawn > 0 && DefendObjective == 0 && VIPObjective == 0){
-
-			if (DefendObjectiveActive == false && VIPObjectiveActive == false) {
-				/*int r = Random.Range (1, 3);
-				if (r == 1) {
-					Instantiate (VIPEnemy, getSpawnLocation(), Quaternion.LookRotation(new Vector3(0,0,0)));
-					VIPObjective--;
-					Debug.Log ("VIP IS OUT!");
-				} else {
-					spawnDefendObjective();
-					DefendObjective--;
-				}*/
-			}
-
+		while(EnemiesLeftToSpawn > 0){
 			Instantiate (getEnemy(), getSpawnLocation(), Quaternion.LookRotation(new Vector3(0,0,0)));
-			
+			Debug.Log ("Spawned Enemy");
 			yield return new WaitForSeconds(SpawnDelay);
 			SpawnDelay = Random.Range(1,8);
 		}
